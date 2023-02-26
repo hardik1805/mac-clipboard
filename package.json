@@ -1,0 +1,74 @@
+{
+  "name": "Clipboard",
+  "version": "1.0.0",
+  "description": "Clipboard history manager for Mac",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "release": "electron-builder -p never"
+  },
+  "devDependencies": {
+    "electron": "^12.2.1",
+    "electron-builder": "^23.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardik1805/mac-clipboard.git"
+  },
+  "keywords": [
+    "clipboard",
+    "mac",
+    "clipboard-history"
+  ],
+  "author": "Hardik Gangajaliya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hardik1805/mac-clipboard/issues"
+  },
+  "homepage": "https://github.com/hardik1805/mac-clipboard#readme",
+  "build": {
+    "appId": "com.clipboard.electron",
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "files": [
+      "**/*",
+      "*.js",
+      "resources"
+    ],
+    "asarUnpack": [
+      "resources/icon.png"
+    ],
+    "mac": {
+      "category": "org.clipboard",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "publish": {
+        "provider": "github",
+        "owner": "hardik1805",
+        "repo": "mac-clipboard",
+        "releaseType": "release",
+        "publishAutoUpdate": true,
+        "token": "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"
+      }
+    },
+    "dmg": {
+      "sign": false,
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  }
+}

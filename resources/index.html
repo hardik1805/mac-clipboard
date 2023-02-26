@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clipboard Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            user-select: none;
+        }
+        body {
+            /*background: black;*/
+            /*color: white;*/
+            padding: 10px;
+        }
+
+        .history-item {
+            padding: 10px 20px;
+            border: 1px solid;
+            font-weight: 300;
+            cursor: pointer;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 10px 0;
+            user-select: text;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .history-item:hover {
+            background: #cccccc;
+        }
+        .history-item p {
+            width: 95%;
+        }
+
+        .history-item:active {
+            background: #48cc48;
+        }
+        .no-history {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .click-to-copy {
+            color: gray;
+            user-select: none;
+        }
+
+        .copy {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease-in-out;
+        }
+        .copy p {
+            background: #007313;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+        }
+        .close-icon {
+            width: 15px;
+            height: 15px;
+            position: relative;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .close-icon:before,
+        .close-icon:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+        }
+
+        .close-icon:before {
+            transform: rotate(45deg);
+        }
+
+        .close-icon:after {
+            transform: rotate(-45deg);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #clearHistory {
+            border: none;
+            outline: none;
+            margin: 0;
+            padding: 10px;
+            border-radius: 26px;
+            cursor: pointer;
+            display: flex;
+            width: 125px;
+            color: white;
+            background: #ff1818;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <p class="click-to-copy">Tips: Click or select portion to copy</p>
+    <button id="clearHistory">Clear History</button>
+</div>
+<div class="history-list">
+
+</div>
+
+<div class="copy success"><p>Text copied to clipboard!</p></div>
+<script src="index.js"></script>
+
+</body>
+</html>
